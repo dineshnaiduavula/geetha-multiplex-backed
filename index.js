@@ -62,8 +62,11 @@ app.post('/api/phonepe/initiate', async (req, res) => {
       res.status(500).json({ success: false, message: 'No redirect URL found' });
     }
   } catch (error) {
-    console.error('Error initiating payment:', error.message);
-    res.status(500).json({ success: false, message: 'Internal Server Error' });
+        console.error('Error initiating payment:', error.message);
+        if (error.response) {
+          console.error('PhonePe Response Error:', error.response.data);
+        }
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 });
 
