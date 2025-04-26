@@ -77,7 +77,7 @@ app.post("/api/phonepe/initiate", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Server is running fine 🚀");
+  res.send("Server is running fine  🚀");
 });
 
 app.listen(port, () => {
